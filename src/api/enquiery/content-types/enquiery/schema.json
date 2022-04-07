@@ -1,0 +1,43 @@
+{
+  "kind": "collectionType",
+  "collectionName": "enquieries",
+  "info": {
+    "singularName": "enquiery",
+    "pluralName": "enquieries",
+    "displayName": "Enquiery",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "email": {
+      "type": "string",
+      "required": true
+    },
+    "checkIn": {
+      "type": "date",
+      "required": true,
+      "default": "2022-04-01"
+    },
+    "checkOut": {
+      "type": "date",
+      "required": true,
+      "default": "2022-04-03"
+    },
+    "message": {
+      "type": "richtext"
+    },
+    "accommodation": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::accommodation.accommodation",
+      "inversedBy": "enquieries"
+    }
+  }
+}

@@ -1,0 +1,72 @@
+{
+  "kind": "collectionType",
+  "collectionName": "accommodations",
+  "info": {
+    "singularName": "accommodation",
+    "pluralName": "accommodations",
+    "displayName": "Accommodation",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "location": {
+      "type": "string",
+      "required": true
+    },
+    "recommended": {
+      "type": "boolean",
+      "default": false
+    },
+    "popular": {
+      "type": "boolean",
+      "default": false
+    },
+    "price": {
+      "type": "biginteger",
+      "required": true
+    },
+    "description": {
+      "type": "richtext",
+      "default": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Vulputate ut pharetra sit amet aliquam id. Eget est lorem ipsum dolor sit amet. Aliquam sem et tortor consequat id porta. Arcu dictum varius duis at consectetur lorem donec massa. Nisi est sit amet facilisis magna etiam tempor. Massa tempor nec feugiat nisl pretium fusce. Commodo nulla facilisi nullam vehicula ipsum. Pharetra vel turpis nunc eget. Habitant morbi tristique senectus et netus et. Pharetra vel turpis nunc eget. Ultricies integer quis auctor elit sed vulputate mi sit amet. Diam maecenas ultricies mi eget mauris pharetra et ultrices neque. Quam vulputate dignissim suspendisse in est ante in nibh. Posuere morbi leo urna molestie at elementum eu facilisis. Sit amet volutpat consequat mauris nunc congue. Integer feugiat scelerisque varius morbi enim nunc faucibus. Donec ac odio tempor orci dapibus ultrices in.  Accumsan tortor posuere ac ut consequat. Lectus vestibulum mattis ullamcorper velit sed ullamcorper morbi tincidunt ornare. Diam in arcu cursus euismod quis viverra. Ultricies mi eget mauris pharetra et ultrices neque ornare aenean. Felis donec et odio pellentesque diam volutpat commodo sed. Diam sit amet nisl suscipit adipiscing bibendum est ultricies. Sed tempus urna et pharetra pharetra massa massa ultricies mi. Nec nam aliquam sem et tortor consequat. Senectus et netus et malesuada fames ac turpis egestas maecenas. Pellentesque adipiscing commodo elit at.",
+      "required": true
+    },
+    "rating": {
+      "type": "integer"
+    },
+    "categories": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::category.category",
+      "inversedBy": "accommodations"
+    },
+    "enquieries": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::enquiery.enquiery",
+      "mappedBy": "accommodation"
+    },
+    "photos": {
+      "type": "media",
+      "multiple": true,
+      "required": true,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "card_image": {
+      "type": "string",
+      "required": true
+    }
+  }
+}
